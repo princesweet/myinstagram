@@ -15,9 +15,9 @@ const port = 3000;
 
 // Database connection
 const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'admin', // Use environment variables in production
+    host: 'adserver.mysql.database.azure.com',
+    user: 'albani',
+    password: 'Prince4luk', // Use environment variables in production
     database: 'instagram_clone',
     waitForConnections: true,
     connectionLimit: 10,
