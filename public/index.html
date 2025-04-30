@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Clone</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"> <!-- Font for Logo -->
+</head>
+<body>
+    <div id="app">
+
+        <!-- Authentication Page (Visible when logged out) -->
+        <div id="auth-page">
+            <div class="auth-container">
+                <div class="left-column">
+                    <!-- Phone mockups -->
+                    <img class="phone-image" src="/images/phones-mockup.png" alt="Instagram on Phones">
+                    <!-- You'll need to create/find an image like 'phones-mockup.png' similar to the screenshot -->
+                    <!-- Or use two separate phone images -->
+                </div>
+
+                <div class="right-column">
+                    <!-- Signup Form Box (Visible by default, matching image) -->
+                    <div class="form-box" id="signup-form-container">
+                        <h1 class="instagram-logo">Instagram</h1>
+                        <p class="signup-prompt">Sign up to see photos and videos from your friends.</p>
+
+                        <button class="facebook-login">
+                            <span class="facebook-icon">f</span> Log in with Facebook
+                        </button>
+
+                        <div class="separator">
+                            <div class="line"></div>
+                            <div class="or">OR</div>
+                            <div class="line"></div>
+                        </div>
+
+                        <form id="register-form" class="auth-form">
+                            <input type="email" id="register-email" placeholder="Mobile Number or Email" required>
+                            <input type="text" id="register-fullname" placeholder="Full Name">
+                            <input type="text" id="register-username" placeholder="Username" required>
+                            <input type="password" id="register-password" placeholder="Password" required>
+                            <button type="submit">Sign up</button>
+                        </form>
+                        <p class="terms">By signing up, you agree to our Terms , Data Policy and Cookies Policy .</p>
+                    </div>
+
+                    <!-- Login Form Box (Hidden by default) -->
+                    <div class="form-box" id="login-form-container" style="display: none;">
+                        <h1 class="instagram-logo">Instagram</h1>
+                        <form id="login-form" class="auth-form">
+                            <input type="text" id="login-username" placeholder="Phone number, username, or email" required>
+                            <input type="password" id="login-password" placeholder="Password" required>
+                            <button type="submit">Log In</button>
+                        </form>
+                        <div class="separator">
+                            <div class="line"></div>
+                            <div class="or">OR</div>
+                            <div class="line"></div>
+                        </div>
+                         <button class="facebook-login">
+                            <span class="facebook-icon">f</span> Log in with Facebook
+                        </button>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+
+                    <!-- Switch between Login/Signup -->
+                    <div class="switch-box" id="signup-switch-box">
+                        <p>Have an account? <a href="#" id="switch-to-login">Log in</a></p>
+                    </div>
+                     <div class="switch-box" id="login-switch-box" style="display: none;">
+                        <p>Don't have an account? <a href="#" id="switch-to-signup">Sign up</a></p>
+                    </div>
+
+                    <!-- Get the App -->
+                    <div class="app-download">
+                        <p>Get the app.</p>
+                        <div class="store-buttons">
+                            <a href="#"><img src="/images/app-store.png" alt="Download on the App Store"></a>
+                            <a href="#"><img src="/images/google-play.png" alt="Get it on Google Play"></a>
+                            <!-- You'll need to find/create 'app-store.png' and 'google-play.png' images -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Basic Footer -->
+            <footer class="auth-footer">
+                 <!-- Add footer links like Meta, About, Blog, etc. if needed -->
+            </footer>
+        </div> <!-- End #auth-page -->
+
+        <!-- Main App Content (Visible when logged in) -->
+        <div id="app-content" style="display: none;">
+            <!-- Navigation bar -->
+            <nav class="navbar">
+                <div class="navbar-container">
+                    <div class="navbar-brand">Instagram</div> <!-- Or use logo image -->
+                    <!-- Add search bar here if needed -->
+                    <div class="navbar-links">
+                        <a href="#" class="nav-link" id="home-link">🏠</a> <!-- Use icons -->
+                        <!-- Add other icons like Send, Add Post, Explore, Activity -->
+                        <a href="#" class="nav-link" id="profile-link">👤</a> <!-- Use profile pic icon -->
+                        <a href="#" class="nav-link" id="logout-link">Logout</a> <!-- Or use icon/dropdown -->
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main content container -->
+            <div class="container">
+
+                <!-- Feed (shown when logged in) -->
+                <div id="feed" class="feed-section">
+                    <!-- Create post form -->
+                    <div class="create-post">
+                        <form id="post-form">
+                            <textarea id="post-caption" placeholder="Write a caption..."></textarea>
+                            <input type="file" id="post-image" accept="image/*" required>
+                            <button type="submit">Share</button>
+                        </form>
+                         <div class="image-preview-container">
+                             <img id="image-preview" class="image-preview" src="#" alt="Image Preview"/>
+                         </div>
+                    </div>
+                    <!-- Posts feed -->
+                    <div id="posts-container" class="posts-container">
+                        <!-- Posts will be loaded here by main.js -->
+                        <p>Loading posts...</p> <!-- Initial loading message -->
+                    </div>
+                </div> <!-- End #feed -->
+
+                 <!-- Profile Section (Initially hidden) -->
+                 <!-- This is now a sibling of #feed, inside the main .container -->
+                <div id="profile-section" class="profile-section" style="display: none;">
+                    <header class="profile-header">
+                        <div class="profile-pic-container">
+                             <!-- Make the image clickable -->
+                            <img id="profile-pic" src="/images/default-profile.png" alt="Profile Picture" class="profile-pic">
+                             <!-- Hidden input for file selection (<<< ADDED HERE) -->
+                             <input type="file" id="profile-pic-upload" accept="image/*" style="display: none;">
+                        </div>
+                        <div class="profile-info">
+                            <h2 id="profile-username" class="profile-username">username</h2>
+                            <!-- Add Edit Profile / Follow buttons later -->
+                            <div id="profile-stats" class="profile-stats">
+                                <span><strong id="profile-post-count">0</strong> posts</span>
+                                <span><strong id="profile-follower-count">0</strong> followers</span>
+                                <span><strong id="profile-following-count">0</strong> following</span>
+                            </div>
+                            <div class="profile-details">
+                                <span id="profile-fullname" class="profile-fullname">Full Name</span>
+                                <!-- Add Bio element here later -->
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="profile-content-tabs">
+                       <!-- Add tabs for Posts, Saved, Tagged later if needed -->
+                       <span class="tab active">POSTS</span>
+                    </div>
+
+                    <div id="profile-posts-grid" class="profile-posts-grid">
+                        <!-- User's post thumbnails will be loaded here -->
+                        <p>Loading posts...</p>
+                    </div>
+                </div><!-- End #profile-section -->
+
+            </div><!-- End .container -->
+        </div><!-- End #app-content -->
+
+    </div> <!-- End #app -->
+
+    <!-- IMPORTANT: Ensure main.js is loaded BEFORE the inline script -->
+    <script src="/js/main.js"></script>
+
+    <script>
+        // Store current user ID globally
+        let currentUserId = null;
+
+        const authPage = document.getElementById('auth-page');
+        const appContent = document.getElementById('app-content');
+
+        // Set user ID when authenticated
+        async function checkAuthStatusInitial() {
+            try {
+                const response = await fetch('/check-auth');
+                console.log('checkAuthStatusInitial - Response Status:', response.status); // <<< ADDED LOG
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('checkAuthStatusInitial - Auth OK, User Data:', data); // <<< ADDED LOG
+                    currentUserId = data.user.id; // Set global user ID
+                    authPage.style.display = 'none';
+                    appContent.style.display = 'block';
+
+                    const feedElement = document.getElementById('feed');
+                    const profileElement = document.getElementById('profile-section');
+                    if(feedElement) feedElement.style.display = 'block'; // Or 'flex' if needed
+                    if(profileElement) profileElement.style.display = 'none';
+
+                    console.log('checkAuthStatusInitial - Attempting to call loadPosts. currentUserId:', currentUserId); // <<< ADDED LOG
+                    if (typeof loadPosts === 'function') {
+                       console.log('checkAuthStatusInitial - loadPosts is defined, calling it now.'); // <<< ADDED LOG
+                       loadPosts(); // Call the function defined in main.js
+                    } else {
+                        // This error still needs addressing if it appears in your console
+                        console.error("checkAuthStatusInitial - CRITICAL: loadPosts function not found when needed!"); // <<< MODIFIED LOG
+                    }
+                } else {
+                    console.log('checkAuthStatusInitial - Not Authenticated (Status:', response.status + ')'); // <<< ADDED LOG
+                    currentUserId = null;
+                    authPage.style.display = 'flex'; // Use flex for the auth page layout
+                    appContent.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Auth check error in checkAuthStatusInitial:', error); // <<< MODIFIED LOG
+                currentUserId = null;
+                authPage.style.display = 'flex';
+                appContent.style.display = 'none';
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+             console.log("DOMContentLoaded fired for inline script."); // <<< ADDED LOG
+             checkAuthStatusInitial();
+        });
+
+         // Add preview handler for image upload
+        const postImageInput = document.getElementById('post-image');
+        const imagePreview = document.getElementById('image-preview');
+        if (postImageInput && imagePreview) {
+            postImageInput.addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imagePreview.src = e.target.result;
+                        imagePreview.style.display = 'block';
+                    }
+                    reader.readAsDataURL(file);
+                } else {
+                    imagePreview.src = '#';
+                    imagePreview.style.display = 'none';
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

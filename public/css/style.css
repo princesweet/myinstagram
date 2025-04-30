@@ -1,0 +1,856 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fafafa;
+    color: #262626;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+a {
+    color: #0095f6;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+input {
+    font-size: 12px;
+}
+
+/* --- Authentication Page Styles --- */
+#auth-page {
+    display: flex; /* Changed from block to flex for initial load */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #fafafa; /* Ensures background covers viewport */
+}
+
+.auth-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 935px; /* Instagram's max-width */
+    width: 100%;
+    margin: 30px auto; /* Adjust margin as needed */
+}
+
+/* Left Column (Phone Mockups) */
+.left-column {
+    flex-basis: 45%; /* Adjust basis as needed */
+    text-align: right; /* Align image to the right edge */
+    margin-right: 30px; /* Space between phones and form */
+    /* Hide on smaller screens if desired */
+}
+
+.phone-image {
+    max-width: 100%;
+    height: auto;
+    /* If using a specific background image container:
+       background-image: url('/images/phones-mockup.png');
+       background-size: contain;
+       background-repeat: no-repeat;
+       height: 618px;  Example height
+       width: 454px; Example width
+    */
+}
+
+
+/* Right Column (Forms & Links) */
+.right-column {
+    flex-basis: 350px; /* Fixed width for the form area */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center boxes vertically */
+}
+
+.form-box, .switch-box {
+    background-color: #ffffff;
+    border: 1px solid #dbdbdb;
+    border-radius: 1px; /* Instagram uses very slight radius */
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 25px 40px; /* Adjust padding */
+    text-align: center;
+}
+
+.instagram-logo {
+    font-family: 'Lobster', cursive; /* Specific cursive font */
+    font-size: 3rem; /* Adjust size */
+    margin: 15px auto 25px; /* Top, Auto, Bottom */
+    color: #262626;
+    font-weight: normal;
+}
+
+.signup-prompt {
+    color: #8e8e8e;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 0 0 15px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 6px; /* Space between inputs */
+    margin-top: 20px;
+}
+
+.auth-form input {
+    padding: 9px 8px 7px;
+    background-color: #fafafa;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    outline: none;
+}
+
+.auth-form input:focus {
+    border-color: #a8a8a8;
+}
+
+.auth-form button {
+    padding: 7px 16px;
+    background-color: #0095f6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    opacity: 0.7; /* Button often starts slightly faded */
+}
+
+/* Add style for enabled button */
+.auth-form button:enabled {
+    opacity: 1;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    color: #8e8e8e;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.separator .line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #dbdbdb;
+}
+
+.separator .or {
+    margin: 0 18px;
+}
+
+.facebook-login {
+    background: none;
+    border: none;
+    color: #385185; /* Facebook blue */
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 14px;
+}
+
+.facebook-icon {
+    display: inline-block; /* Or use a background image/icon font */
+    /* Add facebook icon styles */
+    margin-right: 8px;
+    width: 16px; /* Example size */
+    height: 16px; /* Example size */
+    /* background-image: url('path/to/facebook-icon.png'); */
+    background-color: #385185; /* Placeholder */
+    color: white;
+    text-align: center;
+    line-height: 16px;
+    border-radius: 2px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px; /* Adjust size of 'f' */
+}
+
+.forgot-password {
+    color: #00376b; /* Darker blue for forgot password */
+    font-size: 12px;
+    margin-top: 12px;
+    display: block;
+}
+
+.terms {
+    color: #8e8e8e;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 15px;
+}
+
+.terms a {
+     color: #8e8e8e; /* Keep link color consistent */
+     font-weight: 600;
+}
+
+.switch-box {
+    padding: 15px;
+}
+
+.switch-box p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.app-download {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.app-download p {
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.store-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.store-buttons img {
+    height: 40px; /* Adjust height */
+}
+
+.auth-footer {
+    margin-top: 20px;
+    /* Add styles for footer links if needed */
+    text-align: center;
+    color: #8e8e8e;
+    font-size: 12px;
+}
+
+
+
+/* Navigation Bar (Update for logged-in view) */
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #dbdbdb;
+    position: sticky; /* Keep navbar at top */
+    top: 0;
+    z-index: 100;
+    padding: 0 20px; /* Adjust padding */
+}
+
+.navbar-container {
+     max-width: 975px; /* Standard Instagram width */
+     margin: 0 auto;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     height: 54px; /* Standard height */
+}
+
+
+.navbar-brand {
+    font-family: 'Lobster', cursive;
+    font-size: 1.8rem; /* Adjust size */
+}
+
+.navbar-links {
+    display: flex;
+    gap: 1.5rem; /* Space between icons */
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #262626;
+    font-size: 1.5rem; /* Adjust icon size */
+}
+
+
+/* Container for Feed/Profile */
+.container {
+    max-width: 975px; /* Match navbar */
+    margin: 20px auto; /* Space below navbar */
+    padding: 0 20px; /* Consistent padding */
+    display: flex; /* Allows for potential sidebars later */
+    justify-content: center; /* Center main content */
+}
+
+/* Feed */
+.feed-section {
+    max-width: 614px; /* Instagram's feed width */
+    width: 100%;
+}
+
+.create-post {
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    padding: 1rem;
+    margin-bottom: 1.5rem; /* Increased space */
+}
+
+.create-post textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: none; /* Cleaner look */
+    /* border: 1px solid #dbdbdb; */
+    border-radius: 3px;
+    resize: none;
+    outline: none;
+    min-height: 50px; /* Ensure some height */
+}
+
+.create-post input[type="file"] {
+    display: block; /* Make file input take space */
+    margin-bottom: 1rem;
+}
+
+.create-post button {
+    padding: 0.5rem 1rem;
+    background-color: #0095f6;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Image upload preview */
+.image-preview-container {
+    text-align: center; /* Center the preview */
+    margin-top: 1rem;
+}
+
+.image-preview {
+    max-width: 100%;
+    max-height: 300px;
+    margin: 1rem 0;
+    display: none; /* Initially hidden */
+    border: 1px solid #efefef; /* Optional border */
+    border-radius: 3px;
+}
+
+/* Posts */
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.post {
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1rem; /* Adjust padding */
+    gap: 0.8rem;
+}
+
+.post-user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #efefef; /* Slight border */
+}
+
+.post-username {
+    font-weight: 600; /* Bolder username */
+    font-size: 14px;
+}
+
+.post-image {
+    width: 100%;
+    max-height: 700px; /* Adjust max height */
+    object-fit: cover; /* Cover ensures image fills, may crop */
+    /* object-fit: contain; */ /* Contain ensures full image visible, may leave space */
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+    display: block; /* Prevent potential bottom space */
+}
+
+.post-actions {
+    padding: 0.5rem 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.post-action {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.3rem; /* Add padding for easier clicking */
+    color: #262626; /* Default icon color */
+}
+
+.post-action svg { /* Ensure SVGs size correctly */
+    display: block;
+}
+
+
+.like-button[data-liked="true"] svg { /* Target SVG inside liked button */
+    fill: #ed4956; /* Red heart when liked */
+    color: #ed4956;
+}
+
+.post-likes {
+    padding: 0 1rem;
+    font-weight: 600; /* Bolder likes count */
+    font-size: 14px;
+}
+
+.post-caption {
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+    line-height: 1.4; /* Improve readability */
+}
+.post-caption strong {
+     font-weight: 600;
+     margin-right: 5px;
+}
+
+
+.post-comments {
+    padding: 0.3rem 1rem;
+    /* border-top: 1px solid #efefef; */
+}
+.post-comments a.view-comments {
+    color: #8e8e8e; /* Grey color for view comments link */
+    font-size: 14px;
+    font-weight: normal;
+}
+.post-comments .no-comments { /* Style for when there are no comments */
+    color: #8e8e8e;
+    font-size: 14px;
+    display: inline-block; /* Or block if you want it on its own line */
+}
+
+
+.comment-form {
+    display: flex;
+    padding: 1rem;
+    border-top: 1px solid #efefef;
+    align-items: center;
+}
+
+.comment-input {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.comment-submit {
+    background: none;
+    border: none;
+    color: #0095f6;
+    font-weight: 600; /* Bolder post button */
+    cursor: pointer;
+    opacity: 0.5; /* Start faded */
+}
+.comment-submit:enabled {
+    opacity: 1;
+}
+
+/* Like animation */
+.like-animation svg { /* Apply animation to the SVG inside */
+    animation: like 0.7s ease;
+}
+
+@keyframes like {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.2); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
+/* Comments modal */
+.comments-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65); /* Slightly darker overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    border-radius: 12px; /* More rounded modal */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    padding: 1rem;
+    border-bottom: 1px solid #dbdbdb;
+    display: flex;
+    justify-content: center; /* Center title */
+    align-items: center;
+    position: relative; /* For absolute positioning close button */
+}
+
+.modal-header h3 {
+     font-weight: 600;
+}
+
+.close-modal {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.8rem; /* Larger close button */
+    cursor: pointer;
+    color: #262626;
+    line-height: 1;
+}
+
+.comments-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.comments-list p { /* Style for 'No comments' message inside modal */
+    color: #8e8e8e;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.comment-item {
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: flex-start; /* Align items to top */
+}
+
+.comment-avatar {
+    width: 32px; /* Smaller avatar in comments */
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    flex-shrink: 0; /* Prevent avatar shrinking */
+}
+
+.comment-content {
+    flex: 1;
+    line-height: 1.4; /* Improve readability */
+}
+.comment-content strong {
+    font-weight: 600;
+    margin-right: 5px;
+}
+.comment-content p {
+    display: inline; /* Keep username and comment on same line */
+    margin: 0;
+    color: #262626; /* Ensure comment text color is default */
+    text-align: left; /* Ensure comment text is left-aligned */
+    padding: 0; /* Reset padding */
+}
+.comment-content small {
+    display: block; /* Put timestamp on new line */
+    color: #8e8e8e;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+
+.delete-comment {
+    background: none;
+    border: none;
+    color: #ed4956;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 0.5rem;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.modal-footer {
+    padding: 1rem;
+    border-top: 1px solid #dbdbdb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically */
+}
+
+.modal-footer span { /* Style for 'Page x of y' text */
+    color: #8e8e8e;
+    font-size: 12px;
+}
+
+.load-more {
+    padding: 0.5rem 1rem;
+    background-color: #0095f6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Success message */
+.success-message {
+    color: green;
+    margin-top: 0.5rem;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* --- Profile Page Styles --- */
+
+.profile-section {
+    max-width: 975px; /* Match container */
+    margin: 0 auto; /* Center in the container */
+    padding-top: 30px; /* Space from navbar */
+    width: 100%; /* Take full width of container */
+}
+
+.profile-header {
+    display: flex;
+    margin-bottom: 44px; /* Space between header and posts */
+    padding: 0 20px; /* Padding consistent with container */
+}
+
+.profile-pic-container {
+    flex-basis: 30%; /* Adjust size ratio */
+    margin-right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Vertically align */
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #dbdbdb;
+    cursor: pointer; /* <<< ADDED CURSOR */
+    transition: opacity 0.2s ease-in-out; /* Smooth hover */
+}
+/* Optional: Add a subtle hover effect */
+.profile-pic:hover { /* <<< ADDED HOVER */
+    opacity: 0.9;
+}
+
+
+.profile-info {
+    flex-basis: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between username line, stats, details */
+    justify-content: center; /* Vertically center content */
+}
+
+.profile-username {
+    font-size: 28px;
+    font-weight: 300; /* Lighter weight for username */
+    margin: 0;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 40px; /* Space between stats */
+    font-size: 16px;
+}
+
+.profile-stats span strong {
+    font-weight: 600;
+}
+
+.profile-details {
+    font-size: 16px;
+}
+
+.profile-fullname {
+    font-weight: 600;
+}
+
+.profile-content-tabs {
+    border-top: 1px solid #dbdbdb;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 15px 0;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #8e8e8e;
+    font-weight: 600; /* Bolder tabs */
+}
+
+.profile-content-tabs .tab.active {
+    color: #262626;
+    border-top: 1px solid #262626;
+    margin-top: -16px; /* Pull border up over the main border */
+    padding-top: 15px;
+}
+
+.profile-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 28px; /* Gap between posts */
+}
+
+.profile-post-item {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; /* Creates a square aspect ratio */
+    overflow: hidden;
+    background-color: #efefef; /* Placeholder background */
+}
+
+.profile-post-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the square area */
+    cursor: pointer; /* Indicate clickable later */
+}
+
+/* Loading/Error states for grid */
+.profile-posts-grid p {
+    grid-column: 1 / -1; /* Span all columns */
+    text-align: center;
+    color: #8e8e8e;
+    margin-top: 40px;
+    font-size: 16px;
+}
+
+
+/* Media Queries for Responsiveness (Basic Example) */
+@media (max-width: 875px) {
+    .left-column {
+        display: none; /* Hide phone image on smaller screens */
+    }
+    .right-column {
+        flex-basis: 100%; /* Form takes full width */
+        max-width: 350px; /* Keep max width */
+        margin: 0 auto; /* Center form */
+    }
+    .auth-container {
+         margin-top: 0;
+         justify-content: center;
+    }
+}
+
+@media (max-width: 735px) {
+     .profile-header {
+         flex-direction: column; /* Stack pic and info */
+         align-items: center; /* Center items */
+         padding: 0 10px;
+         margin-bottom: 24px;
+     }
+     .profile-pic-container {
+         margin-right: 0;
+         margin-bottom: 20px;
+         flex-basis: auto;
+     }
+     .profile-pic {
+         width: 80px;
+         height: 80px;
+     }
+     .profile-info {
+         flex-basis: auto;
+         align-items: center; /* Center text */
+         gap: 15px;
+         width: 100%; /* Allow stats to take full width */
+     }
+     .profile-username {
+          font-size: 22px;
+     }
+     .profile-stats {
+         font-size: 14px;
+         gap: 0; /* Remove gap, use justify-content */
+         padding: 10px 0;
+         border-top: 1px solid #efefef;
+         border-bottom: 1px solid #efefef;
+         width: 100%;
+         justify-content: space-around; /* Distribute stats evenly */
+         margin-top: 10px; /* Add space above stats */
+     }
+     .profile-details {
+         font-size: 14px;
+         text-align: center;
+         margin-top: 10px; /* Add space above details */
+     }
+
+     .profile-posts-grid {
+         gap: 3px; /* Smaller gap on mobile */
+     }
+    .profile-content-tabs {
+         gap: 30px; /* Reduce tab gap */
+    }
+}
+
+
+@media (max-width: 450px) {
+    .form-box, .switch-box {
+        background-color: #fafafa; /* Match body background */
+        border: none;
+        padding: 10px 20px;
+    }
+     .right-column {
+         max-width: 100%;
+         padding: 0 10px; /* Add some padding to screen edges */
+     }
+    .store-buttons img {
+        height: 35px;
+    }
+     .navbar-container {
+         padding: 0 10px;
+     }
+     .navbar-brand {
+         font-size: 1.5rem;
+     }
+     .navbar-links {
+         gap: 1rem;
+     }
+     .nav-link {
+         font-size: 1.3rem;
+     }
+     .container {
+         padding: 0 5px;
+     }
+     .profile-posts-grid {
+         gap: 2px; /* Even smaller gap */
+     }
+
+}
