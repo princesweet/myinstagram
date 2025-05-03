@@ -15,13 +15,27 @@ const port = 3000;
 
 // Database connection
 const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'admin', // Use environment variables in production
-    database: 'instagram_clone',
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0
+    host: process.env.AZURE_MYSQL_HOST,
+    user: process.env.AZURE_MYSQL_USER,
+    password: process.env.AZURE_MYSQL_PASSWORD,
+    database: process.env.AZURE_MYSQL_DBNAME,
+
+    // Azure Specific SSL Requirement
+    ssl: {
+        // Use this setting for Azure MySQL Flexible Server default SSL
+        // It requires SSL but doesn't validate the server's certificate chain strictly.
+        // For production with higher security needs, you might configure specific CA certs.
+        rejectUnauthorized: false
+    },
+
+    // Common Pool Management Options
+    waitForConnections: true,   // Wait for available connection if pool is full (default)
+    connectionLimit: 10,        // Max number of connections in pool (default)
+    queueLimit: 0               // Unlimited queue requests when pool is full (default)
+
+}).on('error', (err) => {
+    // Log pool errors globally for monitoring
+    console.error('[mysql Pool Error]', err.code, err.message);
 });
 
 // Middleware
