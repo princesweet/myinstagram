@@ -15,6 +15,7 @@ const port = 3000;
 
 // Database connection
 const pool = mysql.createPool({
+    // Essential Connection Details (from Environment Variables)
     host: process.env.AZURE_MYSQL_HOST,
     user: process.env.AZURE_MYSQL_USER,
     password: process.env.AZURE_MYSQL_PASSWORD,
